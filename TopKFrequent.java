@@ -21,6 +21,7 @@ class Pair{
 	                map.put(num, 1);
 	            }
 	        }
+	 
 	        // create a min heap
 	        PriorityQueue<Pair> queue = new PriorityQueue<Pair>(new Comparator<Pair>(){
 	            public int compare(Pair a, Pair b){
@@ -50,7 +51,7 @@ class Pair{
 		
 		public static void main(String[] args) {
 			
-			int [] nums = {1,1,1,2,2,3,4,4,4,4,6,6,6,6};
+			int [] nums = {1,1,1,2,2,3,4,4,4,4,6,6,6,};
 			int k =2;
 			
 			List<Integer> list = topKFrequent(nums,k);		

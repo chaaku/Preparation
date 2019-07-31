@@ -1,0 +1,113 @@
+
+
+AutoBoxing :- https://www.geeksforgeeks.org/autoboxing-unboxing-java/
+
+
+Autoboxing: Converting a primitive value into an object of the corresponding wrapper class is called autoboxing. For example, converting int to Integer class. The Java compiler applies autoboxing when a primitive value is:
+	 Passed as a parameter to a method that expects an object of the corresponding wrapper class. 
+	 Assigned to a variable of the corresponding wrapper class.
+
+
+Unboxing: Converting an object of a wrapper type to its corresponding primitive value is called unboxing. For example conversion of Integer to int. The Java compiler applies unboxing when an object of a wrapper class is:
+
+	Passed as a parameter to a method that expects a value of the corresponding primitive type.
+	Assigned to a variable of the corresponding primitive type.
+
+
+	// creating an Integer Object 
+        // with value 10. 
+        Integer i = new Integer(10); 
+  
+        // unboxing the Object 
+        int i1 = i; 
+  
+        System.out.println("Value of i: " + i); 
+        System.out.println("Value of i1: " + i1); 
+  
+        //Autoboxing of char 
+        Character ch = 'a'; 
+  
+        // Auto-unboxing of Character 
+        char c = ch; 
+        System.out.println("Value of ch: " + ch); 
+        System.out.println("Value of c: " + c); 
+        
+         /* Here we are creating a list  of elements of Integer type.  adding the int primitives type values */
+         
+        List<Integer> list = new ArrayList<Integer>(); 
+        for (int i = 0; i < 10; i++) 
+            list.add(i); 
+            
+JAVA Memory Model : https://www.journaldev.com/2856/java-jvm-memory-model-memory-management-in-java
+
+	Java Garbage Collection is the process to identify and remove the unused objects from the memory and free the space.
+	
+	Garbage Collector is the program running in the background that looks into all the objects in the memory and find out objects that are not referenced by any part of the program. All these unreferenced objects are deleted and space is reclaimed for allocation to other objects.
+		
+		Marking
+		Normal Deletion
+		Deletion with Compacting
+
+
+INSTANCEOF and ISINSTANCE method in JAVA :
+
+instanceof operator and isInstance() method both are used for checking the class of the object. But main difference comes when we want to check the class of object dynamically. In this case isInstance() method will work. There is no way we can do this by instanceof operator.
+
+instanceof operator and isInstance() method both return a boolean value.
+
+    A a = new A();
+    B b = new B();
+    C c = new C();
+ 
+    System.out.println("a instanceof A: " + (a instanceof A)); //true
+    System.out.println("b instanceof A: " + (b instanceof A)); //true
+    System.out.println("c instanceof A: " + (c instanceof A)); //true
+    System.out.println("a instanceof B: " + (a instanceof B)); //false
+    System.out.println("null instanceof A: " + (null instanceof A)); //false
+    System.out.println("a.getClass().isInstance(a): " + a.getClass().isInstance(a)); //true
+    System.out.println("b.getClass().isInstance(c): " + b.getClass().isInstance(c)); //false
+
+composition , Aggregation ,  Association : 
+
+Association
+Association refers to the relationship between multiple objects. It refers to how objects are related to each other and how they are using each other's functionality. Composition and aggregation are two types of association.
+
+Composition
+The composition is the strong type of association. An association is said to composition if an Object owns another object and another object cannot exist without the owner object. Consider the case of Human having a heart. Here Human object contains the heart and heart cannot exist without Human.
+
+Aggregation
+Aggregation is a weak association. An association is said to be aggregation if both Objects can exist independently. For example, a Team object and a Player object. The team contains multiple players but a player can exist without a team.
+
+-------Example of Composition-----------
+
+//Human must have Heart
+public class Human {
+   //Heart is a mandatory part of the Human
+   private final Heart heart;
+
+   public Human () {
+      heart = new Heart();
+   }
+}
+
+//Heart Object
+class Heart {}
+
+-------Example of Aggregation-----------
+//Team
+public class Team {      
+   //players can be 0 or more
+   private List players;
+
+   public Team () {
+      players = new ArrayList();
+   }
+}
+//Player Object
+class Player {}
+
+
+
+advantage of polymorphism :-
+
+

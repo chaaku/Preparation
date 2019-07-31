@@ -43,7 +43,7 @@ public class TestClass {
 		ArrayList<Integer> list = map.get(i);
 		
 		if(list==null) {
-			list = new ArrayList<Integer>();
+			list = new ArrayList<>();
 			list.add(root.data);
 		}
 		
