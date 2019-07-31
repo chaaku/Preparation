@@ -1,32 +1,28 @@
+import java.util.HashMap;
+import java.util.Scanner;
 
 public class MemoryLeak {
 
+	public static void main(String[] args) throws Exception {
 
-	       public static void main(String args[]) {
-	    	   Runtime r = Runtime.getRuntime(); 
-	    	   long mem1, mem2; 
-	    	   Integer someints[] = new Integer[1000]; 
-	    	   
-	    	   System.out.println("Total memory is: " +r.totalMemory()); 
-	    	   mem1 = r.freeMemory(); 
-	    	   System.out.println("Initial free memory: " + mem1); 
-	    	   r.gc();
-	    	   mem1 = r.freeMemory(); 
-	    	   System.out.println("Free memory after garbage collection: "+ mem1); 
-	    	   
-	    	   for(int i=0; i<1000; i++)  
-	    		   someints[i] = new Integer(i); // allocate integers 
-	    	   
-	    	   mem2 = r.freeMemory(); 
-	    	   System.out.println("Free memory after allocation: "+ mem2); 
-	    	   System.out.println("Memory used by allocation: " + (mem1-mem2)); 
-	    	   // discard Integers 
-	    	   for(int i=0; i<1000; i++) 
-	    		   someints[i] = null; 
-	    	   
-	    	   r.gc(); // request garbage collection 
-	    	   mem2 = r.freeMemory(); 
-	    	   System.out.println("Free memory after collecting" +" discarded Integers: " + mem2);
-	       }
+		Scanner sc = new Scanner(System.in);
+
+		while (true) {
+			System.out.println("Enter a number between 1 and 100");
+			int i = sc.nextInt(); // not shown
+			System.out.println("Answer " + square(i));
+		}
 	}
 
+	public static int square(int i) {
+
+		HashMap cache = new HashMap();
+
+		int result = i * i;
+
+		cache.put(i, result);
+
+		return result;
+	}
+
+}
